@@ -1,0 +1,78 @@
+# Configuration for Traffic Object Detection, Tracking & Congestion Prediction
+
+# Model Settings
+detector:
+  model_name: "yolov8n.pt"  # Options: yolov8n.pt, yolo11n.pt, etc.
+  conf_threshold: 0.35
+  iou_threshold: 0.45
+  device: "cpu"  # "cuda" if GPU is available, else "cpu"
+  target_classes:
+    0: "person"
+    1: "bicycle"
+    2: "car"
+    3: "motorcycle"
+    5: "bus"
+    7: "truck"
+    9: "traffic light"
+    11: "stop sign"
+
+tracker:
+  type: "bytetrack"
+  track_thresh: 0.5
+  track_buffer: 30
+  match_thresh: 0.8
+  frame_rate: 30
+
+traffic_analysis:
+  time_interval_seconds: 60  # Aggregate window in seconds
+  speed_estimation:
+    pixel_to_meter_scale: 0.05  # Approximate meters per pixel
+    fps: 30.0
+  lane_occupancy:
+    enabled: true
+    default_lane_area_ratio: 0.85
+  congestion_thresholds:  # Composite congestion score [0.0 - 1.0]
+    low_max: 0.30
+    moderate_max: 0.60
+    high_max: 0.85
+    # Above high_max is SEVERE
+
+time_series:
+  sequence_length: 10
+  prediction_horizon: 15  # Configurable horizon (e.g., 15 steps ahead)
+  feature_columns:
+    - "total_vehicles"
+    - "cars"
+    - "motorcycles"
+    - "buses"
+    - "trucks"
+    - "pedestrians"
+    - "vehicle_flow"
+    - "density"
+    - "lane_occupancy"
+    - "average_speed"
+  target_column: "congestion_score"
+
+model_training:
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  batch_size: 16
+  epochs: 50
+  learning_rate: 0.001
+  hidden_dim_1: 64
+  hidden_dim_2: 32
+  dropout: 0.2
+  patience: 10
+
+paths:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  traffic_csv: "data/traffic_timeseries.csv"
+  detector_model_dir: "models/detector"
+  tracker_model_dir: "models/tracker"
+  lstm_model_dir: "models/lstm"
+  gru_model_dir: "models/gru"
+  results_figures_dir: "results/figures"
+  results_metrics_dir: "results/metrics"
+  results_predictions_dir: "results/predictions"

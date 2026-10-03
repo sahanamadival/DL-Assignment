@@ -1,0 +1,26 @@
+{
+    "Naive_Last_Value": {
+        "MAE": 0.2119,
+        "RMSE": 0.2592,
+        "R2_Score": -4.9382,
+        "MAPE_Percent": 29.94
+    },
+    "Random_Forest": {
+        "MAE": 0.1701,
+        "RMSE": 0.186,
+        "R2_Score": -2.0575,
+        "MAPE_Percent": 26.91
+    },
+    "LSTM": {
+        "MAE": 0.0935,
+        "RMSE": 0.1071,
+        "R2_Score": -0.0133,
+        "MAPE_Percent": 14.95
+    },
+    "GRU": {
+        "MAE": 0.199,
+        "RMSE": 0.2042,
+        "R2_Score": -2.6867,
+        "MAPE_Percent": 30.06
+    }
+}

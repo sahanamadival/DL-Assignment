@@ -1,0 +1,10 @@
+video_time_seconds,total_vehicles,cars,motorcycles,buses,trucks,pedestrians,active_vehicle_count,unique_vehicle_flow,density,road_region_occupancy,relative_speed_proxy,congestion_score,congestion_level
+1.0,24,21,1,0,1,1,24,36,0.1787,,1.64,0.4894,MODERATE
+2.0,20,17,1,0,1,1,20,31,0.1475,,1.91,0.4071,MODERATE
+3.0,21,18,0,0,1,1,21,32,0.177,,2.03,0.4385,MODERATE
+4.0,20,18,0,0,0,0,20,33,0.1839,,2.03,0.4253,MODERATE
+5.0,19,18,0,1,0,0,19,26,0.2027,,1.74,0.418,MODERATE
+6.0,17,16,0,1,0,0,17,29,0.3149,,1.63,0.4408,MODERATE
+7.0,15,13,0,1,0,0,15,26,0.2724,,1.89,0.3862,MODERATE
+8.0,16,15,0,1,0,0,16,23,0.1602,,1.41,0.3468,MODERATE
+8.4,16,15,0,1,0,0,16,18,0.1158,,1.99,0.3246,MODERATE
